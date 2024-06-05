@@ -18,7 +18,7 @@ public class Passenger {
     @Column(name = "email")
     private String email;
 
-//    private List<Flight> flights;
+    @OneToMany(mappedBy = "passenger")
     private List<Booking> bookings;
 
     public Passenger(String name, String email) {
@@ -54,20 +54,19 @@ public class Passenger {
         this.email = email;
     }
 
-//    public List<Flight> getFlights() {
-//        return flights;
-//    }
-//
-//    public void setFlights(List<Flight> flights) {
-//        this.flights = flights;
-//    }
-
-
     public List<Booking> getBookings() {
         return bookings;
     }
 
     public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
+    }
+
+    public void addBooking(Booking booking) {
+        this.bookings.add(booking);
+    }
+
+    public void removeBooking(Booking booking) {
+        this.bookings.remove(booking);
     }
 }
