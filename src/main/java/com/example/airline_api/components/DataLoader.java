@@ -34,7 +34,7 @@ public class DataLoader implements ApplicationRunner {
         Booking booking1 = new Booking(flight1,passenger1,1);
         bookingRepository.save(booking1);
 
-        Passenger passenger2 = new Passenger("Bob","bob@hotmail.com");;
+        Passenger passenger2 = new Passenger("Bob","bob@hotmail.com");
         passengerService.savePassenger(passenger2);
 
         Booking booking2 = new Booking(flight1,passenger2,2);
@@ -43,7 +43,7 @@ public class DataLoader implements ApplicationRunner {
         Flight flight2 = new Flight("New York",600,"05072024","21:00");
         flightService.saveFlight(flight2);
 
-        Passenger passenger3 = new Passenger("Rob","rob@hotmail.com");;
+        Passenger passenger3 = new Passenger("Rob","rob@hotmail.com");
         passengerService.savePassenger(passenger3);
 
         Booking booking3 = new Booking(flight2,passenger3,1);
