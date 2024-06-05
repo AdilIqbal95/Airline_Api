@@ -1,9 +1,8 @@
 package com.example.airline_api.services;
 
-import com.example.airline_api.models.Flight;
+
 import com.example.airline_api.models.Passenger;
 import com.example.airline_api.repositories.BookingRepository;
-import com.example.airline_api.repositories.FlightRepository;
 import com.example.airline_api.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +27,7 @@ public class PassengerService {
         return passengerRepository.findById(id);
     }
 
-    public void saveFlight(Passenger passenger) {
+    public void savePassenger(Passenger passenger) {
         passengerRepository.save(passenger);
     }
 

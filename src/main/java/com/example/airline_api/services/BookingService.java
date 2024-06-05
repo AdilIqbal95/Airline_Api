@@ -22,11 +22,11 @@ public class BookingService {
     @Autowired
     FlightService flightService;
 
-    public List<Booking> getAllPassengers() {
+    public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
 
-    public Optional<Booking> getPassengerById(long id) {
+    public Optional<Booking> getBookingById(long id) {
         return bookingRepository.findById(id);
     }
 

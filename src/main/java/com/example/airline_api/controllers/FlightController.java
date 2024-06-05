@@ -1,7 +1,10 @@
 package com.example.airline_api.controllers;
 
 import com.example.airline_api.models.Flight;
+import com.example.airline_api.services.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +14,13 @@ import java.util.List;
 @RequestMapping("/flights")
 public class FlightController {
 
+    @Autowired
+    FlightService flightService;
+
     // TODO: Display all available flights
     @GetMapping
     public ResponseEntity<List<Flight>> getAllFlights(){
-        return null;
+        return new ResponseEntity<>(flightService.getAllFlights(), HttpStatus.OK);
     }
 
     // TODO: Display a specific flight
