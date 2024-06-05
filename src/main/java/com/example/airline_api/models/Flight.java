@@ -10,14 +10,15 @@ public class Flight {
     private int capacity;
     private String departureDate;
     private String departureTime;
-    private List<Passenger> passengers;
+//    private List<Passenger> passengers;
+    private List<Booking> bookings;
 
     public Flight(String destination, int capacity, String departureDate, String departureTime) {
         this.destination = destination;
         this.capacity = capacity;
         this.departureDate = departureDate;
         this.departureTime = departureTime;
-        this.passengers = new ArrayList<>();
+        this.bookings = new ArrayList<>();
     }
 
     public Flight() {
@@ -63,11 +64,20 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
-    public List<Passenger> getPassengers() {
-        return passengers;
+//    public List<Passenger> getPassengers() {
+//        return passengers;
+//    }
+//
+//    public void setPassengers(List<Passenger> passengers) {
+//        this.passengers = passengers;
+//    }
+
+
+    public List<Booking> getBookings() {
+        return bookings;
     }
 
-    public void setPassengers(List<Passenger> passengers) {
-        this.passengers = passengers;
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
     }
 }
