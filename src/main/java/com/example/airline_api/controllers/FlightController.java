@@ -42,8 +42,9 @@ public class FlightController {
 
     // TODO: Extension - Cancel flight
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity cancelFlight(){
-        return null;
+    public ResponseEntity cancelFlight(@PathVariable long id){
+        flightService.cancelFlightById(id);
+        return new ResponseEntity(id, HttpStatus.OK);
     }
 
 }
