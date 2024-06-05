@@ -1,6 +1,7 @@
 package com.example.airline_api.controllers;
 
 import com.example.airline_api.models.Booking;
+import com.example.airline_api.models.BookingDTO;
 import com.example.airline_api.models.Passenger;
 import com.example.airline_api.services.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,10 @@ public class BookingController {
     }
 
     // TODO: Add details of a new booking
-    @PostMapping(value = "/{id}")
-    public ResponseEntity<Booking> addNewBooking(@PathVariable long id){
-        Optional<Booking> booking = bookingService.getBookingById(id);
-        if(booking.isPresent()) {
-            return new ResponseEntity<>(bookingService.getBookingById(id).get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+    @PostMapping
+    public ResponseEntity<List<Booking>> addNewBooking(@RequestBody BookingDTO bookingDTO){
+        bookingService.saveBooking(bookingDTO);
+        return new ResponseEntity<>(bookingService.getAllBookings(), HttpStatus.CREATED);
     }
 
     // TODO: Extension - Update passenger meal preference

@@ -1,6 +1,8 @@
 package com.example.airline_api.services;
 
 import com.example.airline_api.models.Booking;
+import com.example.airline_api.models.BookingDTO;
+import com.example.airline_api.models.Flight;
 import com.example.airline_api.models.Passenger;
 import com.example.airline_api.repositories.BookingRepository;
 import com.example.airline_api.repositories.PassengerRepository;
@@ -35,5 +37,15 @@ public class BookingService {
     }
 
 //    TODO - saveBooking
+    public Booking saveBooking(BookingDTO bookingDTO) {
+        Passenger passenger = passengerService.getPassengerById(bookingDTO.getPassengerId()).get();
+        Flight flight = flightService.getFlightById(bookingDTO.getFlightId()).get();
+
+        Booking booking = new Booking(flight,passenger,bookingDTO.getSeatNumber());
+
+        bookingRepository.save(booking);
+        return booking;
+}
+
 
 }
