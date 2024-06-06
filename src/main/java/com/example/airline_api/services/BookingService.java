@@ -5,7 +5,6 @@ import com.example.airline_api.models.BookingDTO;
 import com.example.airline_api.models.Flight;
 import com.example.airline_api.models.Passenger;
 import com.example.airline_api.repositories.BookingRepository;
-import com.example.airline_api.repositories.PassengerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +35,6 @@ public class BookingService {
         bookingRepository.deleteById(id);
     }
 
-//    TODO - saveBooking
     public Booking saveBooking(BookingDTO bookingDTO) {
         Passenger passenger = passengerService.getPassengerById(bookingDTO.getPassengerId()).get();
         Flight flight = flightService.getFlightById(bookingDTO.getFlightId()).get();
@@ -45,7 +43,13 @@ public class BookingService {
 
         bookingRepository.save(booking);
         return booking;
-}
+    }
+
+    public void updateMeal(BookingDTO bookingDTO, long id) {
+        Booking bookingToUpdate = bookingRepository.findById(id).get();
+        bookingToUpdate.setMealPreference(bookingDTO.getMealPreference());
+        bookingRepository.save(bookingToUpdate);
+    }
 
 
 }

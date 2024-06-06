@@ -7,11 +7,11 @@ public class BookingDTO {
     private int seatNumber;
     private String mealPreference;
 
-    public BookingDTO(long passengerId, long flightId, int seatNumber) {
+    public BookingDTO(long passengerId, long flightId, int seatNumber, String mealPreference) {
         this.passengerId = passengerId;
         this.flightId = flightId;
         this.seatNumber = seatNumber;
-//        this.mealPreference = mealPreference;
+        this.mealPreference = mealPreference;
     }
 
     public BookingDTO() {

@@ -32,7 +32,6 @@ public class FlightService {
     }
 
 //    TODO - updateFlight
-//    TODO - deleteFlight
     public void cancelFlightById(long id) {
         Flight flight = getFlightById(id).get();
         for (Booking booking : flight.getBookings()) {
